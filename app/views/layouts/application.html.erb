@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>StoreApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <style type="text/css">
+  	html {
+    height: 100%;
+	}
+	
+	body {
+    height: 100%;
+    margin: 50;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+	}
+
+  	body {
+  		background: linear-gradient(to bottom right, linen, white);
+  	}
+
+  	h1 {
+  		color: maroon;
+  		text-align: center;
+  	}
+
+  </style>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
