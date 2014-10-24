@@ -16,5 +16,3 @@ store = 0
 
 while store < 5
 	Product.create(name: store_names.find[store])
-	
-end
