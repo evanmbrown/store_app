@@ -15,4 +15,6 @@ store_category = ["Haberdashery", "Apparel", "Sporting Goods"]
 store = 0
 
 while store < 5
-	Product.create(name: store_names.find[store])
+	store_example = Store.create(name: store_names[store], description: store_description.sample, category: store_category.sample)
+	store += 1
+end
