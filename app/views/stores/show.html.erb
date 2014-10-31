@@ -15,6 +15,17 @@
   <%= @store.category %>
 </p>
 
+<table>
+  <thead align="left">
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Category</th>
+      <th>Price</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
 <% @products.each do |product| %>
 	 <tr>
         <td><%= product.name %></td>
@@ -24,7 +35,8 @@
 
       </tr>
 <% end %>
-
+</table>
+<br/><br/>
 <%= link_to 'New Product', new_store_product_path(@store) %> | 
 <%= link_to 'Edit', edit_store_path(@store) %> |
 <%= link_to 'Back', stores_path %>
