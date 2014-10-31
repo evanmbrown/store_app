@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_filter :load_store
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /products
@@ -24,11 +25,11 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = Product.new(product_params)
+    @product = @store.products.build(product_params)
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        format.html { redirect_to store_product_path(@store, @product), notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
@@ -63,12 +64,16 @@ class ProductsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def load_store
+      @store = Store.find(params[:store_id])
+    end
+
     def set_product
       @product = Product.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :description, :category, :price, :store_id)
+      params.require(:product).permit(:name, :description, :category, :price)
     end
 end

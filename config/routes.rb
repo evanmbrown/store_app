@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   
   root 'static_pages#home'
 
-  resources :products
-
   resources :stores do
     resources :products
   end
