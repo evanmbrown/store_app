@@ -3,7 +3,7 @@ class StoresController < ApplicationController
 
   # GET /stores
   # GET /stores.json
-  def index
+  def index 
     @stores = Store.all
   end
 
